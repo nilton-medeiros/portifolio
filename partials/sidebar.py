@@ -1,7 +1,8 @@
 import flet as ft
 from components.skills import SkillRing, SkillProgressBar
 
-class SidebarHeader(ft.Container):
+
+class SidebarHeader(ft.UserControl):
     def build(self):
         return ft.Container(
             content=ft.Column(
@@ -16,8 +17,10 @@ class SidebarHeader(ft.Container):
                         bgcolor=ft.colors.PRIMARY,
                         small_size=20,
                     ),
-                    ft.Text(value='Dalton Peixoto', theme_style=ft.TextThemeStyle.BODY_LARGE),
-                    ft.Text(value='Desenvolvedor Fullstack', theme_style=ft.TextThemeStyle.BODY_MEDIUM)
+                    ft.Text(value='Dalton Peixoto',
+                            theme_style=ft.TextThemeStyle.BODY_LARGE),
+                    ft.Text(value='Desenvolvedor Fullstack',
+                            theme_style=ft.TextThemeStyle.BODY_MEDIUM)
                 ],
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
             ),
@@ -26,7 +29,7 @@ class SidebarHeader(ft.Container):
         )
 
 
-class SidebarContent(ft.Container):
+class SidebarContent(ft.UserControl):
     def __init__(self):
         super().__init__()
         self.expand = True
@@ -36,22 +39,28 @@ class SidebarContent(ft.Container):
             controls=[
                 ft.Row(
                     controls=[
-                        ft.Text(value='Residência:', theme_style=ft.TextThemeStyle.BODY_LARGE),
-                        ft.Text(value='Brasil', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
+                        ft.Text(value='Residência:',
+                                theme_style=ft.TextThemeStyle.BODY_LARGE),
+                        ft.Text(value='Brasil',
+                                theme_style=ft.TextThemeStyle.BODY_MEDIUM),
                     ],
                     alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
                 ),
                 ft.Row(
                     controls=[
-                        ft.Text(value='Cidade:', theme_style=ft.TextThemeStyle.BODY_LARGE),
-                        ft.Text(value='São Paulo', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
+                        ft.Text(value='Cidade:',
+                                theme_style=ft.TextThemeStyle.BODY_LARGE),
+                        ft.Text(value='São Paulo',
+                                theme_style=ft.TextThemeStyle.BODY_MEDIUM),
                     ],
                     alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
                 ),
                 ft.Row(
                     controls=[
-                        ft.Text(value='Idade:', theme_style=ft.TextThemeStyle.BODY_LARGE),
-                        ft.Text(value='28', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
+                        ft.Text(value='Idade:',
+                                theme_style=ft.TextThemeStyle.BODY_LARGE),
+                        ft.Text(
+                            value='28', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
                     ],
                     alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
                 ),
@@ -79,30 +88,39 @@ class SidebarContent(ft.Container):
         technologies = ft.Column(
             controls=[
                 ft.ListTile(
-                    leading=ft.Icon(name=ft.icons.CHECK, color=ft.colors.PRIMARY),
-                    title=ft.Text(value='Flet', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
+                    leading=ft.Icon(name=ft.icons.CHECK,
+                                    color=ft.colors.PRIMARY),
+                    title=ft.Text(
+                        value='Flet', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
                 ),
                 ft.ListTile(
-                    leading=ft.Icon(name=ft.icons.CHECK, color=ft.colors.PRIMARY),
-                    title=ft.Text(value='Versionamento com GIT', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
+                    leading=ft.Icon(name=ft.icons.CHECK,
+                                    color=ft.colors.PRIMARY),
+                    title=ft.Text(value='Versionamento com GIT',
+                                  theme_style=ft.TextThemeStyle.BODY_MEDIUM),
                 ),
                 ft.ListTile(
-                    leading=ft.Icon(name=ft.icons.CHECK, color=ft.colors.PRIMARY),
-                    title=ft.Text(value='Bootstrap, Webpack, Framer Motion, Tailwind', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
+                    leading=ft.Icon(name=ft.icons.CHECK,
+                                    color=ft.colors.PRIMARY),
+                    title=ft.Text(value='Bootstrap, Webpack, Framer Motion, Tailwind',
+                                  theme_style=ft.TextThemeStyle.BODY_MEDIUM),
                 ),
                 ft.ListTile(
-                    leading=ft.Icon(name=ft.icons.CHECK, color=ft.colors.PRIMARY),
-                    title=ft.Text(value='Typescript, ReactJS, Angular', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
+                    leading=ft.Icon(name=ft.icons.CHECK,
+                                    color=ft.colors.PRIMARY),
+                    title=ft.Text(value='Typescript, ReactJS, Angular',
+                                  theme_style=ft.TextThemeStyle.BODY_MEDIUM),
                 ),
                 ft.ListTile(
-                    leading=ft.Icon(name=ft.icons.CHECK, color=ft.colors.PRIMARY),
-                    title=ft.Text(value='Django, Flask, FastAPI', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
+                    leading=ft.Icon(name=ft.icons.CHECK,
+                                    color=ft.colors.PRIMARY),
+                    title=ft.Text(value='Django, Flask, FastAPI',
+                                  theme_style=ft.TextThemeStyle.BODY_MEDIUM),
                 ),
             ],
             alignment=ft.MainAxisAlignment.START,
             spacing=0,
         )
-
 
         cv = ft.TextButton(
             text='DOWNLOAD CV',
@@ -113,7 +131,6 @@ class SidebarContent(ft.Container):
 
             # https://sites.google.com/site/gdocs2direct/?pli=1
         )
-
 
         return ft.Container(
             bgcolor=ft.colors.BLACK12,
