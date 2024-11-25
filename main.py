@@ -1,7 +1,6 @@
 import flet as ft
 from partials.sidebar import Sidebar
 from partials.content import MainContent
-from partials.sidebarColors import SidebarColors
 
 # Break points size
 # xs    <576px
@@ -95,18 +94,14 @@ class App:
 
     def main(self):
         # xs: <576px | md: ≥768px | lg: ≥992px| xxl: ≥1400px
-        # self.sidebar = Sidebar(col={'xs': 0, 'md': 5, 'lg': 4, 'xxl': 3})
-        # self.content = MainContent(col={'xs': 12, 'md': 7, 'lg': 8, 'xxl': 9})
-        self.sidebar = Sidebar(col={'xs': 0, 'md': 4, 'lg': 3, 'xxl': 3})
-        self.content = MainContent(col={'xs': 12, 'md': 6, 'lg': 7, 'xxl': 8})
-        self.sidebar_colors = SidebarColors(col={'xs': 0, 'md': 2, 'lg': 2, 'xxl': 1})
+        self.sidebar = Sidebar(col={'xs': 0, 'md': 5, 'lg': 4, 'xxl': 3})
+        self.content = MainContent(col={'xs': 12, 'md': 7, 'lg': 8, 'xxl': 9})
 
         self.layout = ft.ResponsiveRow(
             columns=12,
             controls=[
                 self.sidebar,
                 self.content,
-                self.sidebar_colors,
             ],
             expand=True,
         )

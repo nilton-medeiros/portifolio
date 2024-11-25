@@ -1,15 +1,14 @@
 import flet as ft
-from components.skills import SkillProgressBar, SkillRing
-import json
+from components.skills import SkillRing, SkillProgressBar
 
-class SidebarHeader(ft.UserControl):
+class SidebarHeader(ft.Container):
     def build(self):
         return ft.Container(
             content=ft.Column(
                 controls=[
                     ft.Badge(
                         content=ft.Image(
-                            src="images/face-1.jpg",
+                            src='images/face-1.jpg',
                             border_radius=ft.border_radius.all(100),
                             width=100,
                         ),
@@ -17,7 +16,7 @@ class SidebarHeader(ft.UserControl):
                         bgcolor=ft.colors.PRIMARY,
                         small_size=20,
                     ),
-                    ft.Text(value='Nilton Medeiros', theme_style=ft.TextThemeStyle.BODY_LARGE),
+                    ft.Text(value='Dalton Peixoto', theme_style=ft.TextThemeStyle.BODY_LARGE),
                     ft.Text(value='Desenvolvedor Fullstack', theme_style=ft.TextThemeStyle.BODY_MEDIUM)
                 ],
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
@@ -27,7 +26,7 @@ class SidebarHeader(ft.UserControl):
         )
 
 
-class SidebarContent(ft.UserControl):
+class SidebarContent(ft.Container):
     def __init__(self):
         super().__init__()
         self.expand = True
@@ -45,14 +44,14 @@ class SidebarContent(ft.UserControl):
                 ft.Row(
                     controls=[
                         ft.Text(value='Cidade:', theme_style=ft.TextThemeStyle.BODY_LARGE),
-                        ft.Text(value='Caieiras', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
+                        ft.Text(value='São Paulo', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
                     ],
                     alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
                 ),
                 ft.Row(
                     controls=[
                         ft.Text(value='Idade:', theme_style=ft.TextThemeStyle.BODY_LARGE),
-                        ft.Text(value='60', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
+                        ft.Text(value='28', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
                     ],
                     alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
                 ),
@@ -69,58 +68,52 @@ class SidebarContent(ft.UserControl):
 
         skills = ft.Column(
             controls=[
-                SkillProgressBar(title="HTML", value=1),
-                SkillProgressBar(title="CSS", value=1),
-                SkillProgressBar(title="PYTHON", value=1),
-                SkillProgressBar(title="JS", value=0.8),
-                SkillProgressBar(title="PHP", value=0.6),
+                SkillProgressBar(title='HTML', value=1),
+                SkillProgressBar(title='CSS', value=1),
+                SkillProgressBar(title='PYTHON', value=1),
+                SkillProgressBar(title='JS', value=0.8),
+                SkillProgressBar(title='PHP', value=0.6),
             ]
         )
 
         technologies = ft.Column(
             controls=[
                 ft.ListTile(
-                    leading=ft.Icon(name=ft.icons.CHECK,
-                                    color=ft.colors.PRIMARY),
-                    title=ft.Text(
-                        value="Flet", theme_style=ft.TextThemeStyle.BODY_MEDIUM),
+                    leading=ft.Icon(name=ft.icons.CHECK, color=ft.colors.PRIMARY),
+                    title=ft.Text(value='Flet', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
                 ),
                 ft.ListTile(
-                    leading=ft.Icon(name=ft.icons.CHECK,
-                                    color=ft.colors.PRIMARY),
-                    title=ft.Text(value="Versionamento com GIT",
-                                  theme_style=ft.TextThemeStyle.BODY_MEDIUM),
+                    leading=ft.Icon(name=ft.icons.CHECK, color=ft.colors.PRIMARY),
+                    title=ft.Text(value='Versionamento com GIT', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
                 ),
                 ft.ListTile(
-                    leading=ft.Icon(name=ft.icons.CHECK,
-                                    color=ft.colors.PRIMARY),
-                    title=ft.Text(value="Bootstrap, Webpack, Framer Motion, Taillwind",
-                                  theme_style=ft.TextThemeStyle.BODY_MEDIUM),
+                    leading=ft.Icon(name=ft.icons.CHECK, color=ft.colors.PRIMARY),
+                    title=ft.Text(value='Bootstrap, Webpack, Framer Motion, Tailwind', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
                 ),
                 ft.ListTile(
-                    leading=ft.Icon(name=ft.icons.CHECK,
-                                    color=ft.colors.PRIMARY),
-                    title=ft.Text(value="Typescript, ReactJS, Angular",
-                                  theme_style=ft.TextThemeStyle.BODY_MEDIUM),
+                    leading=ft.Icon(name=ft.icons.CHECK, color=ft.colors.PRIMARY),
+                    title=ft.Text(value='Typescript, ReactJS, Angular', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
                 ),
                 ft.ListTile(
-                    leading=ft.Icon(name=ft.icons.CHECK,
-                                    color=ft.colors.PRIMARY),
-                    title=ft.Text(value="Django, Flask, FastAPI",
-                                  theme_style=ft.TextThemeStyle.BODY_MEDIUM),
+                    leading=ft.Icon(name=ft.icons.CHECK, color=ft.colors.PRIMARY),
+                    title=ft.Text(value='Django, Flask, FastAPI', theme_style=ft.TextThemeStyle.BODY_MEDIUM),
                 ),
             ],
             alignment=ft.MainAxisAlignment.START,
             spacing=0,
         )
 
+
         cv = ft.TextButton(
             text='DOWNLOAD CV',
             style=ft.ButtonStyle(color=ft.colors.GREY),
             icon=ft.icons.DOWNLOAD,
             icon_color=ft.colors.GREY,
-            url="https://drive.google.com/uc?export=download&id=118Qk5tbstpATvtDcdku7xS4rnnNqx4Bh"
+            url='https://drive.google.com/uc?export=download&id=1vHKz5-tKDC_HMwqaGYMbsAicGrKPwyFL',
+
+            # https://sites.google.com/site/gdocs2direct/?pli=1
         )
+
 
         return ft.Container(
             bgcolor=ft.colors.BLACK12,
@@ -145,8 +138,8 @@ class SidebarContent(ft.UserControl):
 class SidebarFooter(ft.UserControl):
     def build(self):
         def change_primary_color(e):
-            # Não consigo aqui acessar o Page para fazer um togger (visíviel/invisível) o Container sidebar_colors
-            pass
+            e.page.theme.color_scheme.primary = e.control.data
+            e.page.update()
 
         return ft.Container(
             padding=ft.padding.symmetric(vertical=10),
@@ -175,11 +168,141 @@ class SidebarFooter(ft.UserControl):
                     ft.Container(
                         expand=True,
                     ),
-                    ft.IconButton(
-                        icon=ft.icons.COLOR_LENS_OUTLINED,
-                        icon_color=ft.colors.WHITE,
-                        icon_size=16,
-                        on_click=change_primary_color,
+                    ft.PopupMenuButton(
+                        expand=True,
+                        content=ft.Icon(
+                            name=ft.icons.COLOR_LENS_OUTLINED,
+                            color=ft.colors.WHITE,
+                            size=15,
+                        ),
+                        items=[
+                            ft.PopupMenuItem(
+                                content=ft.Row(
+                                    controls=[
+                                        ft.Container(
+                                            height=10,
+                                            width=10,
+                                            bgcolor=ft.colors.AMBER
+                                        ),
+                                        ft.Text(value='Amarelo')
+                                    ]
+                                ),
+                                data='amber',
+                                on_click=change_primary_color,
+                            ),
+                            ft.PopupMenuItem(
+                                content=ft.Row(
+                                    controls=[
+                                        ft.Container(
+                                            height=10,
+                                            width=10,
+                                            bgcolor=ft.colors.RED
+                                        ),
+                                        ft.Text(value='Vermelho')
+                                    ]
+                                ),
+                                data='red',
+                                on_click=change_primary_color,
+                            ),
+                            ft.PopupMenuItem(
+                                content=ft.Row(
+                                    controls=[
+                                        ft.Container(
+                                            height=10,
+                                            width=10,
+                                            bgcolor=ft.colors.DEEP_ORANGE
+                                        ),
+                                        ft.Text(value='Laranja')
+                                    ]
+                                ),
+                                data='deeporange',
+                                on_click=change_primary_color,
+                            ),
+                            ft.PopupMenuItem(
+                                content=ft.Row(
+                                    controls=[
+                                        ft.Container(
+                                            height=10,
+                                            width=10,
+                                            bgcolor=ft.colors.PINK
+                                        ),
+                                        ft.Text(value='Rosa')
+                                    ]
+                                ),
+                                data='pink',
+                                on_click=change_primary_color,
+                            ),
+                            ft.PopupMenuItem(
+                                content=ft.Row(
+                                    controls=[
+                                        ft.Container(
+                                            height=10,
+                                            width=10,
+                                            bgcolor=ft.colors.DEEP_PURPLE
+                                        ),
+                                        ft.Text(value='Violeta')
+                                    ]
+                                ),
+                                data='deeppurple',
+                                on_click=change_primary_color,
+                            ),
+                            ft.PopupMenuItem(
+                                content=ft.Row(
+                                    controls=[
+                                        ft.Container(
+                                            height=10,
+                                            width=10,
+                                            bgcolor=ft.colors.PURPLE
+                                        ),
+                                        ft.Text(value='Roxo')
+                                    ]
+                                ),
+                                data='purple',
+                                on_click=change_primary_color,
+                            ),
+                            ft.PopupMenuItem(
+                                content=ft.Row(
+                                    controls=[
+                                        ft.Container(
+                                            height=10,
+                                            width=10,
+                                            bgcolor=ft.colors.INDIGO
+                                        ),
+                                        ft.Text(value='Índigo')
+                                    ]
+                                ),
+                                data='indigo',
+                                on_click=change_primary_color,
+                            ),
+                            ft.PopupMenuItem(
+                                content=ft.Row(
+                                    controls=[
+                                        ft.Container(
+                                            height=10,
+                                            width=10,
+                                            bgcolor=ft.colors.BLUE
+                                        ),
+                                        ft.Text(value='Azul')
+                                    ]
+                                ),
+                                data='blue',
+                                on_click=change_primary_color,
+                            ),
+                            ft.PopupMenuItem(
+                                content=ft.Row(
+                                    controls=[
+                                        ft.Container(
+                                            height=10,
+                                            width=10,
+                                            bgcolor=ft.colors.GREEN
+                                        ),
+                                        ft.Text(value='Verde')
+                                    ]
+                                ),
+                                data='green',
+                                on_click=change_primary_color,
+                            ),
+                        ],
                     ),
                 ]
             )
