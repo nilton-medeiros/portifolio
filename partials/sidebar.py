@@ -186,6 +186,7 @@ class SidebarFooter(ft.UserControl):
                         expand=True,
                     ),
                     ft.PopupMenuButton(
+                        tooltip="Cores",
                         expand=True,
                         content=ft.Icon(
                             name=ft.icons.COLOR_LENS_OUTLINED,
